@@ -75,3 +75,7 @@ D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debu
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Login.baml
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\MainWindow.baml
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\Project.g.resources
+D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\UserControls\EmployeeManager.g.cs
+D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\UserControls\EmployeeManager.baml
+D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Add_UpdateEmployee.g.cs
+D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Add_UpdateEmployee.baml

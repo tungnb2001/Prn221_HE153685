@@ -13,7 +13,13 @@
     <Compile Update="UserControls\ControlBarManager2.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\EmployeeManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\HomeManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Add_UpdateEmployee.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DialogCustoms.xaml.cs">
@@ -33,7 +39,13 @@
     <Page Update="UserControls\ControlBarManager2.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControls\EmployeeManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControls\HomeManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Add_UpdateEmployee.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DialogCustoms.xaml">

@@ -114,3 +114,10 @@ CREATE TABLE [dbo].[OrderDetails](
 	FOREIGN KEY ([BookId]) REFERENCES [dbo].[Books]([BookId])
 )
 
+INSERT INTO Employees (FullName, CardId, Gender, Address, Role, Phone, Email)
+VALUES 
+    ('John Doe', '1234567890', 'Male', '123 Main St, City', 'Manager', '123-456-7890', 'john.doe@example.com'),
+    ('Jane Smith', '0987654321', 'Female', '456 Elm St, City', 'Supervisor', '987-654-3210', 'jane.smith@example.com'),
+    ('Michael Johnson', '5678901234', 'Male', '789 Oak St, City', 'Employee', '567-890-1234', 'michael.johnson@example.com'),
+    ('Emily Davis', '4321098765', 'Female', '321 Pine St, City', 'Employee', '432-109-8765', 'emily.davis@example.com'),
+    ('David Wilson', '9876543210', 'Male', '654 Cedar St, City', 'Employee', '987-654-3210', 'david.wilson@example.com');
