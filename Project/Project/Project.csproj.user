@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="UserControls\BookManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\ControlBarManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,7 +22,13 @@
     <Compile Update="UserControls\HomeManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\SuppliersManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Add_UpdateEmployee.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Add_UpdateSupplier.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DialogCustoms.xaml.cs">
@@ -33,6 +42,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="UserControls\BookManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControls\ControlBarManager.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -45,7 +57,13 @@
     <Page Update="UserControls\HomeManager.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserControls\SuppliersManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\Add_UpdateEmployee.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Add_UpdateSupplier.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DialogCustoms.xaml">

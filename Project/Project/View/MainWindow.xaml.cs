@@ -26,7 +26,7 @@ namespace Project.View
         //private WarehouseManager Warehouse;
         private EmployeeManager Employees;
         //private OrderDetailsManager OrderDetails;
-        //private SuppliersManager Suppliers;
+        private SuppliersManager Suppliers;
         //private PurchaseOrdersManager PurchaseOrders;
 
 
@@ -113,7 +113,7 @@ namespace Project.View
             this.DataContext = this;
             Home = new HomeManager();
             contenDisplayMain.Content = Home;
-            //txbHoTenNV.Text = Account.UserName;
+            txbHoTenNV.Text = Account.UserName;
             //if (string.IsNullOrEmpty(taiKhoan.avatar))
             //{
             //    Uri uri = new Uri("pack://application:,,,/Res/mountains.jpg");
@@ -182,6 +182,13 @@ namespace Project.View
                         break;
 
                     case 5:
+                        if (Suppliers == null)
+                        {
+                            Suppliers = new SuppliersManager();
+                        }
+                        contenDisplayMain.Content = Suppliers;
+                        break;
+                    case 6:
                         //if (Suppliers == null)
                         //{
                         //    Suppliers = new SuppliersManager();

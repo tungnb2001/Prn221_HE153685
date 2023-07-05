@@ -1,4 +1,4 @@
-
+﻿
 USE [master]
 GO
 
@@ -121,3 +121,16 @@ VALUES
     ('Michael Johnson', '5678901234', 'Male', '789 Oak St, City', 'Employee', '567-890-1234', 'michael.johnson@example.com'),
     ('Emily Davis', '4321098765', 'Female', '321 Pine St, City', 'Employee', '432-109-8765', 'emily.davis@example.com'),
     ('David Wilson', '9876543210', 'Male', '654 Cedar St, City', 'Employee', '987-654-3210', 'david.wilson@example.com');
+
+	INSERT INTO [dbo].[Suppliers] ([SupplierName], [ContactName], [Phone], [Email], [Address])
+VALUES
+('NC1', 'Người liên hệ 1', '1234567890', 'email1@example.com', 'DC1'),
+('NC2', 'Người liên hệ 2', '0987654321', 'email2@example.com', 'DC2'),
+('NC3', 'Người liên hệ 3', '1112223333', 'email3@example.com', 'DC3'),
+('NC4', 'Người liên hệ 4', '4445556666', 'email4@example.com', 'DC4'),
+('NC5', 'Người liên hệ 5', '7778889999', 'email5@example.com', 'DC5');
+
+
+	INSERT INTO [dbo].[Users] ([UserName],[Password] )
+VALUES
+('admin' , 'admin')
