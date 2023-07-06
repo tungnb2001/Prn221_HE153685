@@ -1,7 +1,11 @@
-﻿using Project.UserControls;
+﻿using Microsoft.Win32;
+using Project.DAO;
+using Project.Model;
+using Project.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -26,7 +30,7 @@ namespace Project.View
         //private WarehouseManager Warehouse;
         private BookManager Book;
         private EmployeeManager Employees;
-        //private OrderDetailsManager OrderDetails;
+        private OrderDetailManager OrderDetails;
         private SuppliersManager Suppliers;
         //private PurchaseOrdersManager PurchaseOrders;
 
@@ -115,27 +119,27 @@ namespace Project.View
             Home = new HomeManager();
             contenDisplayMain.Content = Home;
             txbHoTenNV.Text = Account.UserName;
-            //if (string.IsNullOrEmpty(taiKhoan.avatar))
-            //{
-            //    Uri uri = new Uri("pack://application:,,,/Res/mountains.jpg");
-            //    ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
-            //    imgAvatar.Fill = imageBrush;
-            //}
-            //else
-            //{
-            //    string staupPath = Environment.CurrentDirectory + "\\Res";
-            //    string filePath = Path.Combine(staupPath, taiKhoan.avatar);
-            //    if (File.Exists(filePath))
-            //    {
-            //        ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri(filePath)));
-            //        imgAvatar.Fill = imageBrush;
+            if (string.IsNullOrEmpty(Account.Image))
+            {
+                Uri uri = new Uri("D:\\PRN221\\PROJECT_PRN221\\Project_PRN221\\Prn221_HE153685\\Project\\Project\\Res\\Light 010.png");
+                ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
+                imgAvatar.Fill = imageBrush;
+            }
+            else
+            {
+                string staupPath = Environment.CurrentDirectory + "\\Res";
+                string filePath = System.IO.Path.Combine(staupPath, Account.Image);
+                if (File.Exists(filePath))
+                {
+                    ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri(filePath)));
+                    imgAvatar.Fill = imageBrush;
 
-            //    }
-            //    else
-            //    {
-            //        new DialogCustoms("Không tồn tại file ảnh của nhân viên " + taiKhoan.NhanVien.HoTen, "Thông báo", DialogCustoms.OK).ShowDialog();
-            //    }
-            //}
+                }
+                else
+                {
+                    new DialogCustoms("Không tồn tại file ảnh của nhân viên " + Account.UserName, "Thông báo", DialogCustoms.OK).ShowDialog();
+                }
+            }
             initListViewMenu();
         }
         private void lisviewMenu_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -153,12 +157,12 @@ namespace Project.View
                         contenDisplayMain.Content = Home;
                         break;
                     case 1:
-                        //if (OrderDetails == null)
-                        //{
-                        //    OrderDetails = new OrderDetailsManager();
-                        //}
-                        //contenDisplayMain.Content = OrderDetails;
-                        //break;
+                        if (OrderDetails == null)
+                        {
+                            OrderDetails = new OrderDetailManager();
+                        }
+                        contenDisplayMain.Content = OrderDetails;
+                        break;
                         break;
                     case 2:
                         //if (PurchaseOrders == null)
@@ -204,16 +208,76 @@ namespace Project.View
             }
         }
 
+        private void btnThayAnh_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            openFile.FilterIndex = 1;
+            openFile.RestoreDirectory = true;
 
+            if (openFile.ShowDialog() == true)
+            {
+                try
+                {
+                    // Xử lý đổi tên tệp tin truyền vào
+                    string[] arr = openFile.FileName.Split('\\');
+                    string[] arrFileName = arr[arr.Length - 1].Split('.');
+                    string newNameFile = "UserName" + Account.UserName + "-" + DateTime.Now.Ticks.ToString() + "." + arrFileName[arrFileName.Length - 1];
 
-    }
-    public class ItemMenuMainWindow
-    {
-        public string name { get; set; }
-        public string foreColor { get; set; }
-        public string kind_Icon { get; set; }
+                    // Lấy đường dẫn và tên tệp tin nguồn
+                    string sourceFile = openFile.FileName;
 
-        public ItemMenuMainWindow() { }
+                    // Lấy đường dẫn đích
+                    string currentDirectory = Directory.GetCurrentDirectory();
+                    string solutionDirectory = System.IO.Path.GetFullPath(System.IO.Path.Combine(currentDirectory, @"..\..\..\"));
+                    string targetPath = System.IO.Path.Combine(solutionDirectory, "Res");
 
+                    // Kết hợp đường dẫn và tên tệp tin đích
+                    string destFile = System.IO.Path.Combine(targetPath, newNameFile);
+
+                    // Sao chép tệp tin từ nguồn đến đích
+                    File.Copy(sourceFile, destFile, true);
+
+                    // Gán lại giao diện
+                    Uri uri = new Uri(destFile);
+                    ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
+                    imgAvatar.Fill = imageBrush;
+
+                    // Thêm đường dẫn vào cơ sở dữ liệu
+                    string error = string.Empty;
+                    UserDAO userDAO = new UserDAO();
+                    if (!string.IsNullOrEmpty(Account.UserName))
+                    {
+                        bool updateSuccess = userDAO.UpdateImagePath(Account.UserName, destFile);  // Lưu đường dẫn vào cơ sở dữ liệu
+                        if (updateSuccess)
+                        {
+                            new DialogCustoms("Thay đổi ảnh đại diện thành công cho người dùng : " + Account.UserName, "Thông báo", DialogCustoms.OK).ShowDialog();
+                        }
+                        else
+                        {
+                            new DialogCustoms("Lỗi: " + error, "Thông báo", DialogCustoms.OK).ShowDialog();
+                        }
+
+                    }
+                    else
+                    {
+                        new DialogCustoms("Không có người dùng : " + Account.UserName + " này!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    new DialogCustoms("Lỗi: " + ex.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
+                }
+            }
+        }
+        public class ItemMenuMainWindow
+        {
+            public string name { get; set; }
+            public string foreColor { get; set; }
+            public string kind_Icon { get; set; }
+
+            public ItemMenuMainWindow() { }
+
+        }
     }
 }

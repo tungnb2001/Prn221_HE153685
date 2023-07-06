@@ -44,40 +44,40 @@
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
                                 MinWidth="200" 
-                                VerticalAlignment="Center" />
+                                VerticalAlignment="Center"
+                                 TextChanged="txbTimKiem_TextChanged"
+
+                                 />
                     </Grid>
                 </materialDesign:ColorZone>
-                <!--entersearch-->
-                <Button VerticalAlignment="Center" Padding="0" Margin="0 0 0 3"
-                    Width="55" Height="30"
-                    Background="Transparent"
-                    BorderThickness="0">
-                    <Button.Clip>
-                        <RectangleGeometry Rect="0,0,60,50" RadiusX="50" RadiusY="60">
-                        </RectangleGeometry>
-                    </Button.Clip>
-                    <materialDesign:PackIcon Kind="Send" Width="30"
-                                         Height="30" 
-                                         Foreground="Black" Opacity="0.7" />
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Margin="10 0 0 0" Click="btnSort_Click">
+                    <materialDesign:PackIcon Kind="Sort" />
                 </Button>
                 <TextBox  x:Name="tbTotal" VerticalAlignment="Center" Margin="300 0 0 0 "
          VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                <Button  x:Name="btnThemHoaDon"                                                       
+                    Width="160"
+                    Height="36"
+                    Content="Mua hàng"                                
+                    Background="#478C10" 
+                         Margin="50 0 0 0 "
+                    Click="btnThemHoaDon_Click">
+                    <Button.Clip>
+                        <RectangleGeometry Rect="0,0,160,36" RadiusX="10" RadiusY="10" />
+                    </Button.Clip>
+                </Button>
+
 
             </StackPanel>
         </materialDesign:ColorZone>
         <Grid Grid.Row="1">
             <!--chia dọc ra làm 2-->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-        
-            <!--nửa trái dành cho việc làm các checkbox-->
-            <Grid Grid.Column="0" Background="#F2F1F1" Margin="0 3 0 0" Width="200" Height="800" x:Name="grdCheckBox"
-                  VerticalAlignment="Top" HorizontalAlignment="Left" >
-            </Grid>
             <!--nửa phải để hiện thị phòng-->
-            <Grid Grid.Column="1">
+            <Grid Grid.ColumnSpan="2" Margin="10,0,0,0">
                 <ScrollViewer >
                     <ScrollViewer.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>

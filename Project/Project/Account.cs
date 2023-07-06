@@ -9,5 +9,6 @@ namespace Project
     public class Account
     {
         public static string UserName { get; set; } = "";
+        public static string Image { get; set; } = "";
     }
 }

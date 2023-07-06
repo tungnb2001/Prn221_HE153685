@@ -43,7 +43,8 @@ Exec Sp_executesql @sql2
 CREATE TABLE [dbo].[Users](
 	[id] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[UserName] [nvarchar](max) NOT NULL,
-	[Password] [nvarchar](max) NOT NULL
+	[Password] [nvarchar](max) NOT NULL,
+	[Image] [nvarchar] NOT NULL
 )
 
 CREATE TABLE [dbo].[Employees](
@@ -86,10 +87,7 @@ CREATE TABLE [dbo].[PurchaseOrders] (
     [SupplierID] INT,
     [OrderDate] DATE,
     [TotalAmount] DECIMAL(10, 2),
-	[Quantity] [int] NOT NULL,
-	 [BookId] INT NOT NULL,
-    FOREIGN KEY ([SupplierID]) REFERENCES  [dbo].[Suppliers](SupplierID),
-	FOREIGN KEY ([BookId]) REFERENCES [dbo].[Books]([BookId])
+    FOREIGN KEY ([SupplierID]) REFERENCES  [dbo].[Suppliers](SupplierID)
 )
 
 CREATE TABLE [dbo].[InventoryTransactions](
@@ -107,11 +105,10 @@ CREATE TABLE [dbo].[InventoryTransactions](
 CREATE TABLE [dbo].[OrderDetails](
 	[OrderDetailId] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[EmployeeId] [int] NOT NULL,
-	[BookId] [int] NOT NULL,
-	[Quantity] [int] NOT NULL,
-	[UnitPrice] [numeric](10, 2) NOT NULL,
-	FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employees]([EmployeeId]),
-	FOREIGN KEY ([BookId]) REFERENCES [dbo].[Books]([BookId])
+	[DateCreated] [date] NOT NULL,
+	[Total] [int] NOT NULL,
+	FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employees]([EmployeeId])
+	
 )
 
 INSERT INTO Employees (FullName, CardId, Gender, Address, Role, Phone, Email)
@@ -131,9 +128,9 @@ VALUES
 ('NC5', 'Người liên hệ 5', '7778889999', 'email5@example.com', 'DC5');
 
 
-	INSERT INTO [dbo].[Users] ([UserName],[Password] )
+	INSERT INTO [dbo].[Users] ([UserName],[Password],[Image] )
 VALUES
-('admin' , 'admin')
+('admin' , 'admin','')
 
 INSERT INTO [dbo].[Books] ([SupplierID], [Title], [Price], [Quantity])
 VALUES
@@ -158,4 +155,3 @@ VALUES
     (4, N'Title 19', 15.49, 105),
     (5, N'Title 20', 12.49, 125);
 
-	

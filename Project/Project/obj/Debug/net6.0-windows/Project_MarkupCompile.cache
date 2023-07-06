@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\App.xaml
-1142755256
+14-1512682363
 
-27-660031975
+311463648298
 2221667417443
-UserControls\BookManager.xaml;UserControls\ControlBarManager.xaml;UserControls\ControlBarManager2.xaml;UserControls\EmployeeManager.xaml;UserControls\HomeManager.xaml;UserControls\SuppliersManager.xaml;View\Add_UpdateEmployee.xaml;View\Add_UpdateSupplier.xaml;View\DialogCustoms.xaml;View\Login.xaml;View\MainWindow.xaml;
+UserControls\BookManager.xaml;UserControls\ControlBarManager.xaml;UserControls\ControlBarManager2.xaml;UserControls\EmployeeManager.xaml;UserControls\HomeManager.xaml;UserControls\OrderDetailManager.xaml;UserControls\SuppliersManager.xaml;View\Add_UpdateEmployee.xaml;View\Add_UpdateSupplier.xaml;View\Checkout.xaml;View\DialogCustoms.xaml;View\Login.xaml;View\MainWindow.xaml;View\Order.xaml;
 
 False
 

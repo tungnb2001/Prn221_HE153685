@@ -1,4 +1,5 @@
-﻿using Project.Models;
+﻿
+using Project.Model;
 using Project.View;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Project.DAO
         {
             PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
 
-            // Tìm nhà cung cấp với SupplierId phù hợp
+            
             Supplier supplier = context.Suppliers.FirstOrDefault(e => e.SupplierId == supplierId);
 
             return supplier;

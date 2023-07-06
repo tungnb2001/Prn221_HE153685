@@ -1,4 +1,4 @@
-﻿using Project.Models;
+﻿using Project.Model;
 using Project.View;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,16 @@ namespace Project.DAO
             var employees = new ObservableCollection<Employee>(context.Employees.ToList());
             return employees;
         }
+
+        public Employee GetEmployeeByID(int empId)
+        {
+            PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
+
+            Employee emp = context.Employees.FirstOrDefault(e => e.EmployeeId == empId);
+
+            return emp;
+        }
+
         public void DeleteEmployee(Employee employee)
         {
             using (PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context())

@@ -1,5 +1,5 @@
 ﻿using Project.DAO;
-using Project.Models;
+using Project.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +35,7 @@ namespace Project.View
             if (user != null)
             {
                 Account.UserName = user.UserName;
+                Account.Image =user.Image;
                 // Redirect to the main application window or perform any other action
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();

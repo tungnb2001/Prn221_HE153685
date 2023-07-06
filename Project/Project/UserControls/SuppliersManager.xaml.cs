@@ -1,5 +1,5 @@
 ﻿using Project.DAO;
-using Project.Models;
+using Project.Model;
 using Project.View;
 using System;
 using System.Collections.Generic;
