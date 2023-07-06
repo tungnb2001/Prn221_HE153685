@@ -24,6 +24,7 @@ namespace Project.View
     {
         private HomeManager Home;
         //private WarehouseManager Warehouse;
+        private BookManager Book;
         private EmployeeManager Employees;
         //private OrderDetailsManager OrderDetails;
         private SuppliersManager Suppliers;
@@ -174,11 +175,11 @@ namespace Project.View
                         contenDisplayMain.Content = Employees;
                         break;
                     case 4:
-                        //if (Warehouse == null)
-                        //{
-                        //    Warehouse = new WarehouseManager();
-                        //}
-                        //contenDisplayMain.Content = Warehouse;
+                        if (Book == null)
+                        {
+                            Book = new BookManager();
+                        }
+                        contenDisplayMain.Content = Book;
                         break;
 
                     case 5:

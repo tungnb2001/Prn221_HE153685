@@ -134,3 +134,28 @@ VALUES
 	INSERT INTO [dbo].[Users] ([UserName],[Password] )
 VALUES
 ('admin' , 'admin')
+
+INSERT INTO [dbo].[Books] ([SupplierID], [Title], [Price], [Quantity])
+VALUES
+    (1, N'Title 1', 10.99, 100),
+    (2, N'Title 2', 19.99, 50),
+    (3, N'Title 3', 15.99, 75),
+    (4, N'Title 4', 12.99, 200),
+    (5, N'Title 5', 9.99, 80),
+	 (1, N'Title 6', 8.99, 120),
+    (2, N'Title 7', 14.99, 90),
+    (3, N'Title 8', 11.49, 150),
+    (4, N'Title 9', 13.99, 180),
+    (5, N'Title 10', 7.99, 100),
+    (1, N'Title 11', 9.49, 70),
+    (2, N'Title 12', 16.99, 110),
+    (3, N'Title 13', 12.99, 95),
+    (4, N'Title 14', 10.99, 130),
+    (5, N'Title 15', 8.49, 160),
+    (1, N'Title 16', 13.49, 85),
+    (2, N'Title 17', 11.99, 140),
+    (3, N'Title 18', 9.99, 75),
+    (4, N'Title 19', 15.49, 105),
+    (5, N'Title 20', 12.49, 125);
+
+	
