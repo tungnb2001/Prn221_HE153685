@@ -44,7 +44,7 @@ CREATE TABLE [dbo].[Users](
 	[id] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[UserName] [nvarchar](max) NOT NULL,
 	[Password] [nvarchar](max) NOT NULL,
-	[Image] [nvarchar] NOT NULL
+	[Image] [nvarchar](max) NOT NULL
 )
 
 CREATE TABLE [dbo].[Employees](
@@ -61,23 +61,23 @@ CREATE TABLE [dbo].[Employees](
 
 CREATE TABLE [dbo].[Suppliers] (
     [SupplierID] INT IDENTITY(1,1) PRIMARY KEY,
-    [SupplierName] VARCHAR(255),
-    [ContactName] VARCHAR(255),
-    [Phone] VARCHAR(20),
-    [Email] VARCHAR(255),
-    [Address] VARCHAR(255)
+    [SupplierName] NVARCHAR(255),
+    [ContactName] NVARCHAR(255),
+    [Phone] NVARCHAR(20),
+    [Email] NVARCHAR(255),
+    [Address] NVARCHAR(255)
 )
 CREATE TABLE [dbo].[Warehouse](
     [WarehouseId] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
-    [Name] [nvarchar](100) NOT NULL,
-    [Location] [nvarchar](100) NOT NULL
+    [Name] [nvarchar](max) NOT NULL,
+    [Location] [nvarchar](max)  NOT NULL
 )
 
 
 CREATE TABLE [dbo].[Books](
 	[BookId] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[SupplierID] [int] NOT NULL,
-	[Title] [nvarchar](160) NOT NULL,
+	[Title] [nvarchar](max)  NOT NULL,
 	[Price] [numeric](10, 2) NOT NULL,
 	[Quantity] [int] NOT NULL,
 	FOREIGN KEY ([SupplierID]) REFERENCES [dbo].[Suppliers](SupplierID)
@@ -95,20 +95,20 @@ CREATE TABLE [dbo].[InventoryTransactions](
     [BookId] [int] NOT NULL,
     [WarehouseId] [int] NOT NULL,
     [Quantity] [int] NOT NULL,
-    [TransactionType] [nvarchar](50) NOT NULL,
+    [TransactionType] [nvarchar](max)  NOT NULL,
     [TransactionDate] [datetime] NOT NULL,
     CONSTRAINT [FK_InventoryTransactions_Books] FOREIGN KEY ([BookId]) REFERENCES [dbo].[Books]([BookId]),
     CONSTRAINT [FK_InventoryTransactions_Warehouse] FOREIGN KEY ([WarehouseId]) REFERENCES [dbo].[Warehouse]([WarehouseId])
 )
 
 
+
+
 CREATE TABLE [dbo].[OrderDetails](
 	[OrderDetailId] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	[EmployeeId] [int] NOT NULL,
+	[EmployeeName] [nvarchar](max) NOT NULL,
 	[DateCreated] [date] NOT NULL,
-	[Total] [int] NOT NULL,
-	FOREIGN KEY ([EmployeeId]) REFERENCES [dbo].[Employees]([EmployeeId])
-	
+	[Total] DECIMAL(10, 2), NOT NULL
 )
 
 INSERT INTO Employees (FullName, CardId, Gender, Address, Role, Phone, Email)

@@ -1,5 +1,5 @@
 ﻿using Project.DAO;
-using Project.Model;
+using Project.Models;
 using Project.View;
 using System;
 using System.Collections.Generic;
@@ -26,9 +26,10 @@ namespace Project.UserControls
     {
 
         private readonly BookDAO bookDAO;
-        private readonly  SupplierDAO supplierDAO;
+        private readonly SupplierDAO supplierDAO;
         private ObservableCollection<Book> books;
         private bool isAscendingSort = true;
+
 
 
         public BookManager()
@@ -37,7 +38,7 @@ namespace Project.UserControls
             bookDAO = new BookDAO();
             supplierDAO = new SupplierDAO();
             loadBookData();
-            
+
         }
 
         private void loadBookData()
@@ -58,7 +59,7 @@ namespace Project.UserControls
         private void CalculateAndDisplayTotalQuantity()
         {
             int totalQuantity = books.Sum(book => book.Quantity);
-            tbTotal.Text = "Số lượng sản phẩm có trong cửa hàng : "+totalQuantity.ToString();
+            tbTotal.Text = "Số lượng sản phẩm có trong cửa hàng : " + totalQuantity.ToString();
         }
         private void FilterEmployeeData(string searchTerm)
         {
@@ -92,10 +93,10 @@ namespace Project.UserControls
             }
             isAscendingSort = !isAscendingSort;
         }
-       
+
         private void btnSort_Click(object sender, RoutedEventArgs e)
         {
-           SortByQuantity();
+            SortByQuantity();
 
         }
         public void CreateBook(ObservableCollection<Book> books)
@@ -114,10 +115,14 @@ namespace Project.UserControls
 
         private void btnThemHoaDon_Click(object sender, RoutedEventArgs e)
         {
-            
             Order order = new Order();
-            order.selectData = new Order.SelectData(CreateBook);
-            order.ShowDialog();
-        }   }
+            if (order != null)
+            {
+                order.selectData = new Order.SelectData(CreateBook);
+                order.ShowDialog();
+                loadBookData();
+            }
+        }
+    }
 }
  

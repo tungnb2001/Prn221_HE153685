@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using Project.DAO;
-using Project.Model;
+using Project.Models;
 using Project.UserControls;
 using System;
 using System.Collections.Generic;
@@ -162,7 +162,6 @@ namespace Project.View
                             OrderDetails = new OrderDetailManager();
                         }
                         contenDisplayMain.Content = OrderDetails;
-                        break;
                         break;
                     case 2:
                         //if (PurchaseOrders == null)

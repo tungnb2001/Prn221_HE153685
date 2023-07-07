@@ -1,4 +1,4 @@
-﻿using Project.Model;
+﻿using Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,8 +33,35 @@ namespace Project.DAO
 
             return book;
         }
+        public void ReduceBookQuantity(Book book, int quantity)
+        {
+            try
+            {
+                using (PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context())
+                {
+              
+                    var dbBook = context.Books.Find(book.BookId);
+                    if (dbBook.Quantity >= quantity)
+                    {     
+                        dbBook.Quantity -= quantity;
 
-       
+                        context.SaveChanges();
+                    }
+                    else
+                    {
+                        throw new Exception("Insufficient quantity in stock.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+                Console.WriteLine("Error reducing book quantity: " + ex.Message);
+                throw; 
+            }
+        }
+
+
 
     }
 }
