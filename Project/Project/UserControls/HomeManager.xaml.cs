@@ -29,7 +29,7 @@ namespace Project.UserControls
             //lấy ra đường dẫn tương đối
             baseDir = Environment.CurrentDirectory;
 
-            //ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home0.png")));
+            
             ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri("D:\\PRN221\\PROJECT_PRN221\\Project_PRN221\\Prn221_HE153685\\Project\\Project\\Res\\Home0.png")));
             this.Background = ENABLED_BACKGROUND;
 
