@@ -38,6 +38,7 @@ namespace Project.UserControls
             bookDAO = new BookDAO();
             supplierDAO = new SupplierDAO();
             loadBookData();
+            initEvent();
 
         }
 
@@ -54,6 +55,24 @@ namespace Project.UserControls
             }
             lvSanPham.ItemsSource = books;
             CalculateAndDisplayTotalQuantity();
+        }
+        private void initEvent()
+        {
+            lvSanPham.PreviewMouseLeftButtonUp += LvSanPham_PreviewMouseLeftButtonUp;
+        }
+
+        private void LvSanPham_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ListView lv = sender as ListView;
+            Book b = lv.SelectedItem as Book;
+            if(b != null)
+            {
+                Add_UpdateBook update = new Add_UpdateBook();
+                update.getData(b);
+                update.updateBook = new Add_UpdateBook.CRUD(bookDAO.UpdateBook);
+                update.ShowDialog();
+                loadBookData();
+            }
         }
 
         private void CalculateAndDisplayTotalQuantity()
@@ -122,6 +141,14 @@ namespace Project.UserControls
                 order.ShowDialog();
                 loadBookData();
             }
+        }
+
+        private void btnNhaphang_Click(object sender, RoutedEventArgs e)
+        {
+            Add_UpdateBook add = new Add_UpdateBook();
+            add.addBook= new Add_UpdateBook.CRUD(bookDAO.CreateBook); ;
+            add.ShowDialog();
+            loadBookData();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Project.Models;
+using Project.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,6 +33,50 @@ namespace Project.DAO
             Book book = context.Books.FirstOrDefault(e => e.BookId == bookId);
 
             return book;
+        }
+        public void CreateBook(Book book)
+        {
+            PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
+            try
+            {
+                context.Books.Add(book);
+                context.SaveChanges();
+                new DialogCustoms("Thêm sản phẩm thành công!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                loadAllBook();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+
+        public void UpdateBook(Book book)
+        {
+            PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
+            try
+            {
+                // Find the existing employee in the context
+                Book existingBook = context.Books.Where(x => x.BookId == book.BookId).FirstOrDefault();
+
+                if (existingBook != null)
+                {
+                    // Update the properties of the existing employee
+                    existingBook.SupplierId = book.SupplierId;
+                    existingBook.Title = book.Title;
+                    existingBook.Price = book.Price;
+                    existingBook.Quantity = book.Quantity;
+                  
+                    context.SaveChanges();
+                    new DialogCustoms("Cập nhật sản phẩm thành công!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    loadAllBook();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         public void ReduceBookQuantity(Book book, int quantity)
         {

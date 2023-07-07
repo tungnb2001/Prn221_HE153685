@@ -108,7 +108,7 @@ CREATE TABLE [dbo].[OrderDetails](
 	[OrderDetailId] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[EmployeeName] [nvarchar](max) NOT NULL,
 	[DateCreated] [date] NOT NULL,
-	[Total] DECIMAL(10, 2), NOT NULL
+	[Total] DECIMAL(10, 2) NOT NULL
 )
 
 INSERT INTO Employees (FullName, CardId, Gender, Address, Role, Phone, Email)

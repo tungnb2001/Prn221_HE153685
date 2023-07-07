@@ -91,3 +91,5 @@ D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debu
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Checkout.baml
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Order.g.cs
 D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Order.baml
+D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Add_UpdateBook.g.cs
+D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\obj\Debug\net6.0-windows\View\Add_UpdateBook.baml
