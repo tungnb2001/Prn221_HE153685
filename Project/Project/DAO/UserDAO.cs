@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Project.Models;
-
+using Project.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,13 +59,13 @@ namespace Project.DAO
             catch (DbUpdateException ex)
             {
                 // Log the detailed exception message for debugging
-                Console.WriteLine("Lỗi: " + ex.InnerException?.Message);
+
+                new DialogCustoms("Lỗi: !" + ex.InnerException?.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             catch (Exception ex)
             {
-                // Log the exception message for debugging
-                Console.WriteLine("Lỗi: " + ex.Message);
+                new DialogCustoms("Lỗi: !" + ex.InnerException?.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
         }

@@ -46,7 +46,7 @@ namespace Project.View
             }
             else
             {
-                MessageBox.Show("Invalid username or password. Please try again.");
+            new DialogCustoms("Invalid username or password. Please try again.", "Thông báo", DialogCustoms.OK).ShowDialog();
             }
 
         }

@@ -32,6 +32,7 @@ namespace Project.View
         private EmployeeManager Employees;
         private OrderDetailManager OrderDetails;
         private SuppliersManager Suppliers;
+        private DashboardManager Dashboard;
         //private PurchaseOrdersManager PurchaseOrders;
 
 
@@ -193,11 +194,11 @@ namespace Project.View
                         contenDisplayMain.Content = Suppliers;
                         break;
                     case 6:
-                        //if (Suppliers == null)
-                        //{
-                        //    Suppliers = new SuppliersManager();
-                        //}
-                        //contenDisplayMain.Content = Suppliers;
+                        if (Dashboard == null)
+                        {
+                            Dashboard = new DashboardManager();
+                        }
+                        contenDisplayMain.Content = Dashboard;
                         break;
 
                 }

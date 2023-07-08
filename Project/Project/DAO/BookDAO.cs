@@ -26,6 +26,14 @@ namespace Project.DAO
             return list;
         }
 
+        public decimal GetTotalBookPrice()
+        {
+            PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
+            loadAllBook();
+            return context.Books.Sum(book => book.Price * book.Quantity);
+        }
+
+
         public Book GetBookById(int bookId)
         {
             PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
@@ -94,14 +102,13 @@ namespace Project.DAO
                     }
                     else
                     {
-                        throw new Exception("Insufficient quantity in stock.");
+                       new DialogCustoms("Insufficient quantity in stock!", "Thông báo", DialogCustoms.OK).ShowDialog();
                     }
                 }
             }
             catch (Exception ex)
             {
-                
-                Console.WriteLine("Error reducing book quantity: " + ex.Message);
+                new DialogCustoms("Error reducing book quantity!", "Thông báo", DialogCustoms.OK).ShowDialog();
                 throw; 
             }
         }
