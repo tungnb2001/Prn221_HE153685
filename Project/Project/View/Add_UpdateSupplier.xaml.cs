@@ -60,7 +60,7 @@ namespace Project.View
                 return false;
             }
 
-            //địa chỉ
+     
             if (string.IsNullOrWhiteSpace(txbAddress.Text))
             {
                 txbAddress.Focus();
@@ -68,7 +68,7 @@ namespace Project.View
                 return false;
             }
 
-            // số điện thoại
+     
             if (string.IsNullOrWhiteSpace(txbPhone.Text))
             {
                 txbPhone.Focus();
@@ -91,7 +91,7 @@ namespace Project.View
                 }
             }
 
-            //email
+
             if (string.IsNullOrWhiteSpace(txbEmail.Text))
             {
                 txbEmail.Focus();
@@ -150,8 +150,8 @@ namespace Project.View
         }
         private void click_Them(object sender, RoutedEventArgs e)
         {
-            //if (checkValidInformation())
-            //{
+            if (checkValidInformation())
+            {
                 Supplier addSupp = new Supplier()
                 {
                     
@@ -169,7 +169,7 @@ namespace Project.View
                     addSupplier(addSupp);
                 }
                 this.Close();
-            //}
+            }
         }
     }
 }

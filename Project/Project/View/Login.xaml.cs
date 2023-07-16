@@ -30,17 +30,17 @@ namespace Project.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UserDAO dao = new UserDAO();
-            string password = tbPassword.Password; // Lấy giá trị text của PasswordBox
+            string password = tbPassword.Password; 
             User user = dao.getUserByUsernameAndPassword(tbUsername.Text, password);
             if (user != null)
             {
                 Account.UserName = user.UserName;
                 Account.Image =user.Image;
-                // Redirect to the main application window or perform any other action
+                
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
 
-                // Close the login window
+                
                 this.Close();
 
             }

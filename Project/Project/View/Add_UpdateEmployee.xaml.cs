@@ -58,7 +58,6 @@ namespace Project.View
             }
 
 
-            //Căn cước công dân
             if (string.IsNullOrWhiteSpace(txbCardId.Text))
             {
                 txbCardId.Focus();
@@ -81,7 +80,6 @@ namespace Project.View
                 }
             }
 
-            //địa chỉ
             if (string.IsNullOrWhiteSpace(txbAddress.Text))
             {
                 txbAddress.Focus();
@@ -89,7 +87,7 @@ namespace Project.View
                 return false;
             }
 
-            // số điện thoại
+            
             if (string.IsNullOrWhiteSpace(txbPhone.Text))
             {
                 txbPhone.Focus();
@@ -112,7 +110,7 @@ namespace Project.View
                 }
             }
 
-            //email
+         
             if (string.IsNullOrWhiteSpace(txbEmail.Text))
             {
                 txbEmail.Focus();

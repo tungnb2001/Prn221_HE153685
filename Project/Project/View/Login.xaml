@@ -33,7 +33,7 @@
         <materialDesign:Card Width="238" Height="325" Background="#FFFFFF"
                              VerticalAlignment="Top" HorizontalAlignment="Left"
                              Margin="100 80 0 0" >
-            <!--vẽ hình tròn-->
+           
             <materialDesign:Card.Clip>
                 <RectangleGeometry Rect="0,0,238,325" RadiusX="10" RadiusY="10" >
                 </RectangleGeometry>

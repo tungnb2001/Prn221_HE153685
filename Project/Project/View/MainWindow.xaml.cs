@@ -108,8 +108,6 @@ namespace Project.View
             listMenu.Add(new ItemMenuMainWindow() { name = "Quản lý nhà phân phối", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Thống kê", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
 
-
-
             lisviewMenu.ItemsSource = listMenu;
             lisviewMenu.SelectedValuePath = "name";
             Title_Main = "Trang Chủ";
@@ -150,7 +148,6 @@ namespace Project.View
                 switch (lisviewMenu.SelectedIndex)
                 {
                     case 0:
-                        //Đang là Home rồi thì không set nữa
                         if (Title_Main.Equals(lisviewMenu.SelectedValue.ToString()))
                         {
                             break;
@@ -203,7 +200,6 @@ namespace Project.View
 
                 }
                 Title_Main = lisviewMenu.SelectedValue.ToString();
-                //Tự động hóa việc click Button toggleBtnMenu_Close
                 btnCloseLVMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }
         }
@@ -243,12 +239,11 @@ namespace Project.View
                     ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
                     imgAvatar.Fill = imageBrush;
 
-                    // Thêm đường dẫn vào cơ sở dữ liệu
                     string error = string.Empty;
                     UserDAO userDAO = new UserDAO();
                     if (!string.IsNullOrEmpty(Account.UserName))
                     {
-                        bool updateSuccess = userDAO.UpdateImagePath(Account.UserName, destFile);  // Lưu đường dẫn vào cơ sở dữ liệu
+                        bool updateSuccess = userDAO.UpdateImagePath(Account.UserName, destFile); 
                         if (updateSuccess)
                         {
                             new DialogCustoms("Thay đổi ảnh đại diện thành công cho người dùng : " + Account.UserName, "Thông báo", DialogCustoms.OK).ShowDialog();
