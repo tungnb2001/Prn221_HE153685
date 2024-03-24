@@ -42,7 +42,7 @@ namespace Project.DAO
 
             return book;
         }
-        public void CreateBook(Book book)
+        public void CreateNewBook(Book book)
         {
             PRN221_Project_HE153685Context context = new PRN221_Project_HE153685Context();
             try
@@ -102,7 +102,7 @@ namespace Project.DAO
                     }
                     else
                     {
-                       new DialogCustoms("Insufficient quantity in stock!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                       new DialogCustoms("Không đủ số lượng trong kho!", "Thông báo", DialogCustoms.OK).ShowDialog();
                     }
                 }
             }

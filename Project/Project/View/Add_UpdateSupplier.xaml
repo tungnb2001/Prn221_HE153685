@@ -49,7 +49,7 @@
                         <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 35 0 0">
                             <materialDesign:PackIcon Kind="AccountBox" Height="25" Width="25" VerticalAlignment="Center"/>
                             <TextBox  x:Name="txbSupplierName" Margin="30 0 0 0" Padding="0"
-                                      materialDesign:HintAssist.Hint="Nhập họ tên nhân viên"
+                                      materialDesign:HintAssist.Hint="Nhập tên nhà cung cấp"
                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
                         <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
@@ -95,14 +95,14 @@
 
             </Grid>
             <Grid Grid.Row="2">
-                <Button Width="89" Height="36" Background="#478C10" Content="Cập nhật" Click="click_Sua" 
+                <Button Width="89" Height="36" Background="#478C10" Content="Update" Click="click_Sua" 
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 20" >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
                     </Button.Clip>
 
                 </Button>
-                <Button Width="89" Height="36" Background="#478C10" Content="Thêm" Click="click_Them" Foreground="White"
+                <Button Width="89" Height="36" Background="#478C10" Content="Add new" Click="click_Them" Foreground="White"
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 20" >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
@@ -119,7 +119,7 @@
                     </Button.Style>
                 </Button>
 
-                <Button Width="89" Height="36" Background="#9D9999" Content="Hủy"
+                <Button Width="89" Height="36" Background="#9D9999" Content="Cancel"
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 80 20" Click="click_Huy"   >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>

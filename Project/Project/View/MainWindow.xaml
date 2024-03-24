@@ -14,7 +14,6 @@
        Title="MainWindow" Height="700" Width="1300"
          TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
-        
          WindowStyle="None"
          AllowsTransparency="True" 
          WindowStartupLocation="CenterScreen" Loaded="load_Windows">
@@ -32,10 +31,10 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
+    
     <Window.Background>
         <ImageBrush ImageSource= "D:\PRN221\PROJECT_PRN221\Project_PRN221\Prn221_HE153685\Project\Project\Res\Light 010.png" Stretch="None"/>
-
-    </Window.Background>
+   </Window.Background>
 
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseLVMenu">
@@ -56,7 +55,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <uc:ControlBarManager Tag="{Binding Title }" Margin="0,-3,0,3" MinHeight="{Binding MinHeight_ucControlbar, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}">
+        <uc:ControlBarManager Tag="{Binding Title}" Margin="0,-3,0,3" MinHeight="{Binding MinHeight_ucControlbar, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}">
             
         </uc:ControlBarManager>
 
@@ -121,7 +120,7 @@
                 </Grid>
             </Grid>
 
-            <Grid   Width="250" Background="White"
+            <Grid Width="250" Background="White"
                         HorizontalAlignment="Left"
                         Margin="-250,-6,0,0" 
                         RenderTransformOrigin="0.5,0.5"
@@ -134,13 +133,10 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Grid.RenderTransform>
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-
-
                 <Grid Grid.Row="0" Height="170">
                     <Grid Background="#FF142C2F" >
                         <Button x:Name="btnDangXuat" Width="80" Height="30" HorizontalAlignment="Left" Padding="0" Foreground="DarkKhaki"
@@ -173,7 +169,6 @@
                                                 <Setter Property="Visibility" Value="Visible"></Setter>
                                             </Trigger>
                                         </Style.Triggers>
-
                                     </Style>
                                 </Button.Style>
                                 <materialDesign:PackIcon Opacity="0.8" Kind="CameraImage" Foreground="Blue" Width="20" Height="20" />
@@ -204,9 +199,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
             </Grid>
-
         </Grid>
 
     </Grid>

@@ -114,14 +114,14 @@
 
             </Grid>
             <Grid Grid.Row="2">
-                <Button Width="89" Height="36" Background="#478C10" Content="Cập nhật" Click="click_Sua" 
+                <Button Width="89" Height="36" Background="#478C10" Content="Update" Click="click_Sua" 
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 20" >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
                     </Button.Clip>
 
                 </Button>
-                <Button Width="89" Height="36" Background="#478C10" Content="Thêm" Click="click_ThemNV" Foreground="White"
+                <Button Width="89" Height="36" Background="#478C10" Content="Add new" Click="click_ThemNV" Foreground="White"
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 20" >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
@@ -138,7 +138,7 @@
                     </Button.Style>
                 </Button>
 
-                <Button Width="89" Height="36" Background="#9D9999" Content="Hủy"
+                <Button Width="89" Height="36" Background="#9D9999" Content="Cancel"
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 80 20" Click="click_Huy"   >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>

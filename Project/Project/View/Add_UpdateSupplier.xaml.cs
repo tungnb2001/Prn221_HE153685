@@ -83,7 +83,7 @@ namespace Project.View
                     new DialogCustoms("Nhập số điện thoại đúng định dạng số !", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
-                if (txbPhone.Text.Length > 10)
+                if (txbPhone.Text.Length > 10 || txbPhone.Text.Length < 10)
                 {
                     txbPhone.Focus();
                     new DialogCustoms("Nhập số điện thoại không quá 10 ký tự !", "Thông báo", DialogCustoms.OK).ShowDialog();
@@ -160,7 +160,6 @@ namespace Project.View
                     Phone = txbPhone.Text,
                     Email = txbEmail.Text,
                     Address = txbAddress.Text,
-
 
                 };
 

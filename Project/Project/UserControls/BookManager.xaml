@@ -15,17 +15,16 @@
              TextOptions.TextRenderingMode="Auto"
              FontFamily="{DynamicResource MaterialDesignFont}"
              Background="White">
+    
     <Grid >
-        <!--Phân grid ngang ra làm 2 phần-->
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <!--ColourZones-->
         <materialDesign:ColorZone Grid.Row="0" Height="45"
                 Mode="PrimaryLight" Background="#FFF4F4F4">
             <StackPanel Orientation="Horizontal">
-                <!--searchbox-->
                 <materialDesign:ColorZone Mode="Standard" Padding="8 0 8 0"
                         CornerRadius="5" Margin="10 5 0 5"
                         materialDesign:ShadowAssist.ShadowDepth="Depth1">
@@ -45,9 +44,7 @@
                                 BorderThickness="0"
                                 MinWidth="200" 
                                 VerticalAlignment="Center"
-                                 TextChanged="txbTimKiem_TextChanged"
-
-                                 />
+                                 TextChanged="txbTimKiem_TextChanged"/>
                     </Grid>
                 </materialDesign:ColorZone>
                 <Button Style="{DynamicResource MaterialDesignToolButton}" Margin="10 0 0 0" Click="btnSort_Click">
@@ -81,32 +78,27 @@
             </StackPanel>
         </materialDesign:ColorZone>
         <Grid Grid.Row="1">
-            <!--chia dọc ra làm 2-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <!--nửa phải để hiện thị phòng-->
             <Grid Grid.ColumnSpan="2" Margin="10,0,0,0">
                 <ScrollViewer >
                     <ScrollViewer.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
                     </ScrollViewer.Resources>
                     <StackPanel>
-                        <!--#region Phòng đơn-->
                         <StackPanel>
                             <TextBlock Text="Sản phẩm" FontSize="20" Foreground="#00A3FF"
                                Margin="40 20 0 0"/>
                             <ListView x:Name="lvSanPham" ItemsSource="{Binding books}" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                               ScrollViewer.VerticalScrollBarVisibility="Disabled" >
-                                <!--Vô hiệu hóa cuộn-->
                                 <ListView.Template>
                                     <ControlTemplate>
                                         <ItemsPresenter />
                                     </ControlTemplate>
                                 </ListView.Template>
-
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -117,7 +109,19 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Width="230" Height="130" 
-                                      HorizontalAlignment="Center" VerticalAlignment="Center" Background="Red">
+                                      HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Background" Value="Red"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Quantity}" Value="0">
+                                                            <Setter Property="Background" Value="#7C7B7B"/>
+                                                        </DataTrigger>
+                                                        
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            
                                             <Grid.Clip>
                                                 <RectangleGeometry Rect="0,0,230,130" RadiusX="10" RadiusY="10"/>
                                             </Grid.Clip>
@@ -126,13 +130,11 @@
                                                 <RowDefinition></RowDefinition>
                                                 <RowDefinition Height="26"></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            <!--Chính-->
                                             <Grid Grid.Row="0">
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="40"></RowDefinition>
                                                     <RowDefinition></RowDefinition>
                                                 </Grid.RowDefinitions>
-
                                                 <Grid Grid.Row="0">
                                                     <Grid Grid.Column="0">
                                                         <materialDesign:PackIcon Grid.Column="0" Margin=" 13 0 10 0" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -187,15 +189,14 @@
                                                 </Grid>
 
                                             </Grid>
-                                            <!--Phụ ở dưới cùng là cái thanh ngang ngang-->
-                                            <Grid Grid.Row="1" Background="#E4DEDE">
 
+                                            <Grid Grid.Row="1" Background="#E4DEDE">
                                                 <Grid.ColumnDefinitions >
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0">
-                                                    
+
                                                     <materialDesign:PackIcon Grid.Column="0" Width="15" Height="15" Margin=" 13 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
                                                         <materialDesign:PackIcon.Style>
                                                             <Style TargetType="materialDesign:PackIcon">
@@ -205,7 +206,7 @@
                                                     </materialDesign:PackIcon>
                                                     <TextBlock Grid.Column="1" Text="{Binding Supplier.SupplierName}"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45 0 10 0" FontSize="11"/>
 
-                                                    
+
                                                 </Grid>
                                                 <Grid Grid.Column="1" HorizontalAlignment="Right">
                                                     <Grid.ColumnDefinitions >
@@ -227,10 +228,7 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-
                         </StackPanel>
-                        <!--#endregion-->
-                        
                     </StackPanel>
                 </ScrollViewer>
             </Grid>

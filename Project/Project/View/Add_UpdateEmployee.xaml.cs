@@ -72,10 +72,10 @@ namespace Project.View
                     new DialogCustoms("Nhập căn cước công dân đúng định dạng số !", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
-                if (txbCardId.Text.Length > 12)
+                if (txbCardId.Text.Length > 12 || txbCardId.Text.Length < 12)
                 {
                     txbCardId.Focus();
-                    new DialogCustoms("Nhập căn cước công dân không quá 12 ký tự !", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    new DialogCustoms("Căn cước công dân phải đủ 12 số", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
             }
@@ -102,10 +102,10 @@ namespace Project.View
                     new DialogCustoms("Nhập số điện thoại đúng định dạng số !", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
-                if (txbPhone.Text.Length > 10)
+                if (txbPhone.Text.Length > 10 || txbPhone.Text.Length <10)
                 {
                     txbPhone.Focus();
-                    new DialogCustoms("Nhập số điện thoại không quá 10 ký tự !", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    new DialogCustoms("Số điện thoại phải đủ 10 số", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
             }
@@ -122,7 +122,7 @@ namespace Project.View
                 if (!IsEmailValid(txbEmail.Text))
                 {
                     txbEmail.Focus();
-                    new DialogCustoms("Nhập địa chỉ email đúng định dạng!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    new DialogCustoms("Nhập địa chỉ email đúng định dạng(example@gmail)", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
             }
@@ -131,7 +131,7 @@ namespace Project.View
             return true;
 
         }
-
+        
         private bool IsEmailValid(string email)
         {
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";

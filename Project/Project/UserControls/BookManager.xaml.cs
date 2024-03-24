@@ -61,19 +61,7 @@ namespace Project.UserControls
             lvSanPham.PreviewMouseLeftButtonUp += LvSanPham_PreviewMouseLeftButtonUp;
         }
 
-        private void LvSanPham_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            ListView lv = sender as ListView;
-            Book b = lv.SelectedItem as Book;
-            if(b != null)
-            {
-                Add_UpdateBook update = new Add_UpdateBook();
-                update.getData(b);
-                update.updateBook = new Add_UpdateBook.CRUD(bookDAO.UpdateBook);
-                update.ShowDialog();
-                loadBookData();
-            }
-        }
+     
 
         private void CalculateAndDisplayTotalQuantity()
         {
@@ -142,13 +130,41 @@ namespace Project.UserControls
                 loadBookData();
             }
         }
+        private void LvSanPham_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (Account.UserName.Equals("admin"))
+            {
+            ListView lv = sender as ListView;
+            Book b = lv.SelectedItem as Book;
+            if (b != null)
+            {
+                Add_UpdateBook update = new Add_UpdateBook();
+                update.getData(b);
+                update.updateBook = new Add_UpdateBook.CRUD(bookDAO.UpdateBook);
+                update.ShowDialog();
+                loadBookData();
+            }
+            }
+            else
+            {
+                new DialogCustoms("Bạn không có quyền sử dụng chức năng này" + "Account: " + Account.UserName, "Thông báo", DialogCustoms.OK).ShowDialog();
+            }
+        }
 
         private void btnNhaphang_Click(object sender, RoutedEventArgs e)
         {
-            Add_UpdateBook add = new Add_UpdateBook();
-            add.addBook= new Add_UpdateBook.CRUD(bookDAO.CreateBook); ;
-            add.ShowDialog();
-            loadBookData();
+            if (Account.UserName.Equals("admin"))
+            {
+                Add_UpdateBook add = new Add_UpdateBook();
+                add.addBook = new Add_UpdateBook.CRUD(bookDAO.CreateNewBook); ;
+                add.ShowDialog();
+                loadBookData();
+            }
+            else
+            {
+                new DialogCustoms("Bạn không có quyền sử dụng chức năng này"+ "Account: " + Account.UserName, "Thông báo", DialogCustoms.OK).ShowDialog();
+            }
+           
         }
     }
 }

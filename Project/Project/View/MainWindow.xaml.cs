@@ -98,10 +98,9 @@ namespace Project.View
         private void initListViewMenu()
         {
             listMenu = new List<ItemMenuMainWindow>();
-            //Khoi tao Menu
 
             listMenu.Add(new ItemMenuMainWindow() { name = "Trang Chủ", foreColor = "Gray", kind_Icon = "Home" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Quản lý bán hàng", foreColor = "#FFF08033", kind_Icon = "StarCircle" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Quản lý đơn hàng", foreColor = "#FFF08033", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Quản lý nhập hàng", foreColor = "Green", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Quản lý nhân viên", foreColor = "#FFD41515", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Quản lý kho", foreColor = "#FFD41515", kind_Icon = "StarCircle" });
@@ -132,7 +131,6 @@ namespace Project.View
                 {
                     ImageBrush imageBrush = new ImageBrush(new BitmapImage(new Uri(filePath)));
                     imgAvatar.Fill = imageBrush;
-
                 }
                 else
                 {
@@ -218,7 +216,7 @@ namespace Project.View
                     // Xử lý đổi tên tệp tin truyền vào
                     string[] arr = openFile.FileName.Split('\\');
                     string[] arrFileName = arr[arr.Length - 1].Split('.');
-                    string newNameFile = "UserName" + Account.UserName + "-" + DateTime.Now.Ticks.ToString() + "." + arrFileName[arrFileName.Length - 1];
+                    string newNameFile = "Username" + Account.UserName + "-" + DateTime.Now.Ticks.ToString() + "." + arrFileName[arrFileName.Length - 1];
 
                     // Lấy đường dẫn và tên tệp tin nguồn
                     string sourceFile = openFile.FileName;
