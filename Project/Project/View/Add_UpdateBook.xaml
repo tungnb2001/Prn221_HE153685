@@ -1,0 +1,186 @@
+﻿<Window x:Class="Project.View.Add_UpdateBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.View"
+       mc:Ignorable="d"
+        Height="500" Width="500"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="White"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
+        AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen">
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,500,500" RadiusX="10" RadiusY="10"/>
+    </Window.Clip>
+
+    <Border BorderThickness="1" BorderBrush="#2C2A2A" CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="360" ></RowDefinition>
+                <RowDefinition  ></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <TextBlock x:Name="txbTitle" Text="Create Book"  
+                               HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                               Height="40"
+                               FontSize="30"
+                               FontWeight="Bold" 
+                               Foreground="#00A3FF"
+                     />
+
+            </Grid>
+            <Grid Grid.Row="1" Width="350" Height="340" HorizontalAlignment="Center" Background="#F2F1F1" >
+                <Grid.Clip>
+                    <RectangleGeometry Rect="0,0,350,340" RadiusX="10" RadiusY="10"/>
+                </Grid.Clip>
+
+                <Grid Height="340" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="200" ></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Book" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1"  VerticalAlignment="Center">
+
+                            <TextBox x:Name="txbTitleBook"                                                       
+                                    materialDesign:HintAssist.Hint="Enter Title Book"                                                      
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"                                                      
+                                    VerticalAlignment="Center" />
+                        </Grid>
+
+
+
+                    </Grid>
+
+                   
+                    <Grid Grid.Row="1" Margin="0 0 0 0"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Beaker" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" >
+                            <ComboBox x:Name="cbSuplier"
+                                VerticalAlignment="Center"                                                                      
+                                materialDesign:HintAssist.Hint="Supplier">
+                            </ComboBox>
+                        </Grid>
+                    </Grid>
+
+
+                 
+                    <Grid Grid.Row="2"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Money"  Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox Name="txtPrice"  Margin="3 0 0 0"
+                                materialDesign:HintAssist.Hint="Price"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"                      
+                                VerticalAlignment="Center"  />
+                        </Grid>
+                    </Grid>
+
+                 
+                    <Grid Grid.Row="3"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="QualityHigh" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox x:Name="txtQuantity"
+                        materialDesign:HintAssist.Hint="Enter Quantity"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid  Width="250" Margin="230 0 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+
+                        <Button Content="Update" Name="btnCapNhat"
+                                    Width="89" Height="36"
+                                    Margin=" 4 4 0 0" 
+                                    Background="#478C10" Click="btnCapNhat_Click">
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                        </Button>
+                        <Button Content="Add new" FontWeight="Bold" Foreground="White"   Width="89" Height="36" Margin=" 4 4 0 0" Background="#478C10" Click="Button_Click">
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Text, ElementName=txbTitle }" Value="Create Book">
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+
+                        <Button x:Name="btnHuy" Click="btnHuy_Click"
+                                    Content="Cancel" 
+                                    Width="89" Height="36"                                    
+                                    Margin=" 4 4 0 0" 
+                                    Background="#9D9999" >
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                        </Button>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
